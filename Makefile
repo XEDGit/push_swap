@@ -8,16 +8,16 @@ push_swap: $(SRC)
 all:
 	@make
 libft/libft.a:
-	@cd libft && make
+	@make -C ./libft
 clean:
 	rm -f push_swap
 fclean:
 	rm -f push_swap
-	@cd libft && make fclean
+	@make fclean -C ./libft
 re:
 	@make clean
 	@echo "\nRecompiling library..."
-	@cd libft && make re
+	@make re -C ./libft
 	@echo "\nRecompiling executable..."
 	gcc $(FLAGS) $(SRC) -o push_swap
 	@echo "\nDone!"
