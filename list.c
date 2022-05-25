@@ -6,7 +6,7 @@
 /*   By: lmuzio <lmuzio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 22:43:45 by lmuzio            #+#    #+#             */
-/*   Updated: 2022/03/24 16:06:59 by lmuzio           ###   ########.fr       */
+/*   Updated: 2022/05/25 22:29:04 by lmuzio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ long	find_next_min(t_list *stack, long last, int size)
 	int		index;
 
 	buffer = malloc(sizeof(long) * size);
+	if (!buffer)
+		error_handler(stack, 0, 0);
 	index = 0;
 	next_min = 0;
 	while (stack)

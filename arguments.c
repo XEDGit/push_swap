@@ -6,7 +6,7 @@
 /*   By: lmuzio <lmuzio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 18:54:09 by lmuzio            #+#    #+#             */
-/*   Updated: 2022/03/24 19:35:58 by lmuzio           ###   ########.fr       */
+/*   Updated: 2022/05/25 22:28:45 by lmuzio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,12 @@ t_list	*parse_arguments(int argc, char *argv[], t_list *a)
 	while (--argc)
 	{
 		if (check_digits(argv[argc]))
-			error_handler();
+			error_handler(0, 0, 0);
 		temp = ft_atoi(argv[argc]);
 		if (check_duplicates(a, temp))
-			error_handler();
-		ft_lstadd_front(&a, ft_lstnew(temp));
+			error_handler(0, 0, 0);
+		if (ft_lstadd_front(&a, ft_lstnew(temp)))
+			error_handler(a, 0, 0);
 	}
 	return (a);
 }

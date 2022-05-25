@@ -6,14 +6,20 @@
 /*   By: lmuzio <lmuzio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:57:01 by lmuzio            #+#    #+#             */
-/*   Updated: 2022/03/24 19:23:53 by lmuzio           ###   ########.fr       */
+/*   Updated: 2022/05/25 22:35:41 by lmuzio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_handler(void)
+void	error_handler(t_list *a, t_list *b, t_list *instructions)
 {
+	if (a)
+		ft_lstclear(&a);
+	if (b)
+		ft_lstclear(&b);
+	if (instructions)
+		ft_lstclear(&instructions);
 	write(2, "Error\n", 6);
 	exit(0);
 }
@@ -52,7 +58,9 @@ void	simplify_loop(t_list **instr_buffer)
 	|| (instr_buffer[1]->content == PA && instr_buffer[2]->content == PB))
 	{
 		instr_buffer[0]->next = instr_buffer[2]->next;
+		free(instr_buffer[1]);
 		instr_buffer[1] = instr_buffer[2]->next;
+		free(instr_buffer[2]);
 		if (instr_buffer[1] == 0)
 			instr_buffer[2] = 0;
 		else
@@ -91,18 +99,22 @@ int	main(int argc, char *argv[])
 
 	a = 0;
 	b = 0;
-	instructions = ft_lstnew(0);
 	if (argc < 2)
 		exit(0);
 	a = parse_arguments(argc, argv, a);
 	if (ft_lstsize(a) == 1)
 		exit(0);
 	normalize_list(a);
-	sort(a, b, instructions);
+	instructions = ft_lstnew(0);
+	if (!instructions)
+		error_handler(a, 0, 0);
+	sort(&a, &b, instructions);
 	if (ft_lstsize(instructions) > 1)
 		simplify_instructions(instructions);
 	print_instructions(instructions->next);
 	ft_lstclear(&instructions);
 	ft_lstclear(&a);
+	if (b)
+		ft_lstclear(&b);
 	exit(0);
 }

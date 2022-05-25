@@ -6,7 +6,7 @@
 /*   By: lmuzio <lmuzio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 18:54:27 by lmuzio            #+#    #+#             */
-/*   Updated: 2022/03/24 16:07:14 by lmuzio           ###   ########.fr       */
+/*   Updated: 2022/05/25 22:39:00 by lmuzio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ int				check_duplicates(t_list *a, int value);
 int				check_digits(const char *str);
 int				find_max_bit(t_list *stack);
 t_list			*parse_arguments(int argc, char *argv[], t_list *a);
-void			error_handler(void);
-void			sort(t_list *a, t_list *b, t_list *instructions);
+void			error_handler(t_list *a, t_list *b, t_list *instructions);
+void			sort(t_list **a, t_list **b, t_list *instructions);
+void			sort_3(t_list *a, t_list *b, t_list *instructions);
+void			pre_sort_5(t_list **a, t_list **b, t_list **instructions);
+void			sort_5(t_list **a, t_list **b, t_list *instructions);
 void			add_instruction(t_list *instructions, int to_add);
 void			normalize_list(t_list *stack);
 void			push(t_list **from, t_list **to);

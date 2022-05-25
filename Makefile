@@ -1,4 +1,4 @@
-SRC := push_swap.c stack_algorythms.c list.c std_stack.c arguments.c libft/libft.a
+SRC := push_swap.c stack_algorythms.c list.c std_stack.c arguments.c libft/libft.a small_stack_algorythms.c
 FLAGS := -Wall -Wextra -Werror
 
 push_swap: $(SRC)
