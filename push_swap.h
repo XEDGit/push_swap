@@ -6,7 +6,7 @@
 /*   By: lmuzio <lmuzio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 18:54:27 by lmuzio            #+#    #+#             */
-/*   Updated: 2022/05/25 22:39:00 by lmuzio           ###   ########.fr       */
+/*   Updated: 2022/09/15 19:03:09 by lmuzio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,18 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-# ifndef PA
-#  define PA 5
-# endif
-# ifndef PB
-#  define PB 6
-# endif
-# ifndef SA
-#  define SA 7
-# endif
-# ifndef SB
-#  define SB 8
-# endif
-# ifndef SS
-#  define SS 9
-# endif
-# ifndef RA
-#  define RA 10
-# endif
-# ifndef RB
-#  define RB 11
-# endif
-# ifndef RR
-#  define RR 12
-# endif
-# ifndef RRA
-#  define RRA 13
-# endif
-# ifndef RRB
-#  define RRB 14
-# endif
-# ifndef RRR
-#  define RRR 15
-# endif
+
+# define PA 5
+# define PB 6
+# define SA 7
+# define SB 8
+# define SS 9
+# define RA 10
+# define RB 11
+# define RR 12
+# define RRA 13
+# define RRB 14
+# define RRR 15
 
 int				check_duplicates(t_list *a, int value);
 int				check_digits(const char *str);
@@ -55,7 +34,9 @@ int				find_max_bit(t_list *stack);
 t_list			*parse_arguments(int argc, char *argv[], t_list *a);
 void			error_handler(t_list *a, t_list *b, t_list *instructions);
 void			sort(t_list **a, t_list **b, t_list *instructions);
+void			sort_2(t_list *a, t_list *b, t_list *instructions);
 void			sort_3(t_list *a, t_list *b, t_list *instructions);
+void			sort_4(t_list **a, t_list **b, t_list *instructions);
 void			pre_sort_5(t_list **a, t_list **b, t_list **instructions);
 void			sort_5(t_list **a, t_list **b, t_list *instructions);
 void			add_instruction(t_list *instructions, int to_add);
