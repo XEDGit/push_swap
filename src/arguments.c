@@ -6,7 +6,7 @@
 /*   By: lmuzio <lmuzio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 18:54:09 by lmuzio            #+#    #+#             */
-/*   Updated: 2022/05/25 22:28:45 by lmuzio           ###   ########.fr       */
+/*   Updated: 2022/09/15 19:45:29 by lmuzio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ int	check_duplicates(t_list *a, int value)
 
 int	check_digits(const char *str)
 {
-	while (*str)
-	{
-		if (!(ft_isdigit(*str) \
-			|| *str == '-' \
-			|| *str == '+'))
-			return (1);
+	if ((*str == '+' || *str == '-'))
 		str++;
-	}
-	return (0);
+	if ((*str == '+' || *str == '-') || !*str)
+		return (1);
+	while (ft_isdigit(*str))
+		str++;
+	if (!*str)
+		return (0);
+	return (1);
 }
 
 t_list	*parse_arguments(int argc, char *argv[], t_list *a)

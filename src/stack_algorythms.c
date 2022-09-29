@@ -6,7 +6,7 @@
 /*   By: lmuzio <lmuzio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 19:46:20 by lmuzio            #+#    #+#             */
-/*   Updated: 2022/05/25 22:39:31 by lmuzio           ###   ########.fr       */
+/*   Updated: 2022/09/15 19:03:53 by lmuzio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,19 @@ void	radix_sort(t_list **a, t_list **b, int max, t_list *instructions)
 void	sort(t_list **a, t_list **b, t_list *instructions)
 {
 	int	max_bit;
-	int	size;
+	int	len;
 
 	if (!check_sort(*a))
 		return ;
 	max_bit = find_max_bit(*a);
-	size = ft_lstsize(*a);
-	if (size == 2)
+	len = ft_lstsize(*a);
+	if (len == 2)
 		sort_2(*a, 0, instructions);
-	else if (size == 3)
+	else if (len == 3)
 		sort_3(*a, 0, instructions);
-	else if (size <= 5)
+	else if (len == 4)
+		sort_4(a, b, instructions);
+	else if (len <= 5)
 		sort_5(a, b, instructions);
 	else
 		radix_sort(a, b, max_bit, instructions);
