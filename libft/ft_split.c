@@ -6,7 +6,7 @@
 /*   By: lmuzio <lmuzio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:54:14 by lmuzio            #+#    #+#             */
-/*   Updated: 2022/01/18 17:54:23 by lmuzio           ###   ########.fr       */
+/*   Updated: 2022/10/13 18:08:08 by lmuzio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ size_t	word_count(const char *s, char c)
 
 char	**free2d(char **tofree, int len)
 {
-	while (len--)
-		free(tofree[len]);
+	int	i;
+
+	i = 0;
+	while (tofree[i] && i != len)
+		free(tofree[i++]);
 	free(tofree);
 	return (0);
 }
